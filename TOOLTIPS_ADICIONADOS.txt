@@ -1,0 +1,120 @@
+✅ TOOLTIPS ADICIONADOS AOS BOTÕES DE AÇÃO
+
+═══════════════════════════════════════════════════════════
+
+🎯 OBJETIVO:
+Melhorar a experiência do usuário adicionando tooltips (dicas) 
+que aparecem ao passar o mouse sobre os botões de ação.
+
+═══════════════════════════════════════════════════════════
+
+📝 O QUE FOI ADICIONADO:
+
+1. BOTÕES DE DELETAR (Ícone de Lixeira 🗑️)
+   ✅ Tooltip: "Deletar"
+   ✅ Cor: Vermelho (btn-danger)
+   ✅ Ícone: FaTrash (já existia)
+
+2. BOTÕES DE EDITAR (Ícone de Lápis ✏️)
+   ✅ Tooltip: "Editar"
+   ✅ Cor: Azul
+   ✅ Ícone: FaEdit
+
+3. BOTÕES ESPECIAIS:
+   ✅ Ver Detalhes - Tooltip: "Ver detalhes"
+   ✅ Editar Quantidade - Tooltip: "Editar quantidade"
+
+═══════════════════════════════════════════════════════════
+
+📂 PÁGINAS ATUALIZADAS:
+
+✅ Clientes (Clientes.jsx)
+   - Editar cliente
+   - Deletar cliente
+
+✅ Serviços (Servicos.jsx)
+   - Editar serviço
+   - Deletar serviço
+
+✅ Peças (Pecas.jsx)
+   - Editar peça
+   - Deletar peça
+   - Editar quantidade
+
+✅ Ferramentas (Ferramentas.jsx)
+   - Editar ferramenta
+   - Deletar ferramenta
+
+✅ Contatos (Contatos.jsx)
+   - Editar contato
+   - Deletar contato
+
+✅ Ordens de Serviço (OrdensServico.jsx)
+   - Ver detalhes da OS
+
+✅ Nova Ordem de Serviço (NovaOrdemServico.jsx)
+   - Deletar serviço da lista
+   - Deletar peça da lista
+
+═══════════════════════════════════════════════════════════
+
+💡 COMO FUNCIONA:
+
+Quando o usuário passar o mouse sobre qualquer botão de ação,
+aparecerá uma dica flutuante com o texto descritivo:
+
+  [🗑️]  →  mouse em cima  →  💬 "Deletar"
+  [✏️]  →  mouse em cima  →  💬 "Editar"
+  [👁️]  →  mouse em cima  →  💬 "Ver detalhes"
+
+═══════════════════════════════════════════════════════════
+
+🎨 RESULTADO VISUAL:
+
+ANTES:
+  Botões sem indicação clara do que fazem
+
+DEPOIS:
+  ✅ Ícones visuais (lixeira, lápis, olho)
+  ✅ Cores diferentes (vermelho para deletar)
+  ✅ Tooltips ao passar o mouse
+  ✅ Interface mais intuitiva
+
+═══════════════════════════════════════════════════════════
+
+🚀 PARA TESTAR:
+
+1. Recarregue a página (F5)
+2. Vá em qualquer lista (Clientes, Peças, etc)
+3. Passe o mouse sobre os botões de ação
+4. Veja os tooltips aparecerem!
+
+═══════════════════════════════════════════════════════════
+
+📌 IMPLEMENTAÇÃO TÉCNICA:
+
+Adicionado atributo HTML "title" nos botões:
+
+Exemplo:
+  <button 
+    className="btn-icon btn-danger" 
+    title="Deletar"
+  >
+    <FaTrash />
+  </button>
+
+O atributo "title" é nativo do HTML e funciona em todos
+os navegadores modernos sem necessidade de CSS adicional.
+
+═══════════════════════════════════════════════════════════
+
+✨ MELHORIAS NA EXPERIÊNCIA DO USUÁRIO:
+
+✅ Interface mais intuitiva
+✅ Usuários sabem o que cada botão faz
+✅ Reduz erros de clique
+✅ Aparência mais profissional
+✅ Acessibilidade melhorada
+
+═══════════════════════════════════════════════════════════
+

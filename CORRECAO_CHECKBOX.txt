@@ -1,0 +1,28 @@
+✅ CORREÇÃO DO ALINHAMENTO DE CHECKBOX
+
+PROBLEMA:
+- Checkbox "Em Uso" estava desalinhado do texto
+- Aparecia abaixo e à direita em vez de ao lado
+
+SOLUÇÃO APLICADA:
+1. Adicionado CSS específico para input[type="checkbox"]
+2. Definido width: auto e height: 18px
+3. Margin: 0 8px 0 0 para espaçamento correto
+4. Label com display: inline-flex e align-items: center
+
+ARQUIVOS CORRIGIDOS:
+✅ client/src/index.css - Estilos globais
+✅ Ferramentas - Checkbox "Em Uso"
+✅ Serviços - Checkbox "Ativo"
+✅ Peças - Checkbox "Ativo"
+✅ Contatos - Checkbox "Ativo"
+
+RESULTADO:
+Agora todos os checkboxes ficam perfeitamente alinhados na mesma linha
+que seus respectivos textos!
+
+PARA TESTAR:
+1. Recarregue a página (F5)
+2. Abra qualquer formulário com checkbox
+3. O checkbox deve estar alinhado com o texto
+

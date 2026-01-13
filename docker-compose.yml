@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # Backend - API Node.js
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: oficina-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - JWT_SECRET=${JWT_SECRET:-seu_jwt_secret_super_seguro_aqui}
+      - ADMIN_EMAIL=${ADMIN_EMAIL:-admin@oficina.com}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin123}
+    volumes:
+      # Persistir banco de dados
+      - ./data:/app/data
+      # Logs
+      - ./logs:/app/logs
+    networks:
+      - oficina-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend - React + Nginx
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: oficina-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - oficina-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  oficina-network:
+    driver: bridge
+
+volumes:
+  oficina-data:
+    driver: local
+

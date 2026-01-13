@@ -1,0 +1,190 @@
+╔═══════════════════════════════════════════════════════════════╗
+║         🚗 SISTEMA DE GERENCIAMENTO DE OFICINA               ║
+║              INSTRUÇÕES DE INSTALAÇÃO                         ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📦 ARQUIVO: IDEIAS.zip
+
+═══════════════════════════════════════════════════════════════
+
+🎯 O QUE VOCÊ VAI RECEBER:
+
+✅ Sistema completo de gerenciamento de oficina
+✅ Backend Node.js com API RESTful
+✅ Frontend React moderno
+✅ Banco de dados SQLite
+✅ Segurança robusta (JWT, criptografia)
+✅ Testes automatizados
+✅ Documentação completa
+
+═══════════════════════════════════════════════════════════════
+
+📋 PRÉ-REQUISITOS:
+
+Você precisa ter instalado:
+- Node.js 16 ou superior
+- npm (vem com Node.js)
+
+Para verificar se tem instalado:
+  node -v
+  npm -v
+
+Se NÃO tiver, baixe em: https://nodejs.org/
+
+═══════════════════════════════════════════════════════════════
+
+🚀 INSTALAÇÃO PASSO A PASSO:
+
+1️⃣ EXTRAIR O ARQUIVO
+   - Extraia o arquivo IDEIAS.zip
+   - Você terá uma pasta chamada "IDEIAS"
+
+2️⃣ ABRIR O TERMINAL
+   - Abra o terminal/prompt de comando
+   - Navegue até a pasta:
+     
+     cd caminho/para/IDEIAS
+
+3️⃣ INSTALAR DEPENDÊNCIAS DO SERVIDOR
+   
+   npm install
+
+   (Aguarde alguns minutos...)
+
+4️⃣ INSTALAR DEPENDÊNCIAS DO CLIENTE
+   
+   cd client
+   npm install
+   cd ..
+
+   (Aguarde alguns minutos...)
+
+5️⃣ INICIAR O SISTEMA
+   
+   npm run dev
+
+   ✅ Se tudo der certo, você verá:
+   - Servidor rodando na porta 3000
+   - Cliente rodando na porta 5173
+
+6️⃣ ACESSAR NO NAVEGADOR
+   
+   Abra: http://localhost:5173
+
+   LOGIN PADRÃO:
+   📧 Email: admin@oficina.com
+   🔑 Senha: admin123
+
+   ⚠️ IMPORTANTE: Altere a senha após o primeiro login!
+
+═══════════════════════════════════════════════════════════════
+
+📚 DOCUMENTAÇÃO:
+
+Dentro da pasta IDEIAS você encontrará:
+
+📄 README.md            - Documentação técnica completa
+📄 GUIA_RAPIDO.md       - Como usar cada funcionalidade
+📄 RESUMO_EXECUTIVO.md  - Visão geral do projeto
+📄 check.sh             - Script para verificar o sistema
+
+═══════════════════════════════════════════════════════════════
+
+💻 COMANDOS ÚTEIS:
+
+# Verificar o sistema
+./check.sh
+
+# Iniciar o sistema (desenvolvimento)
+npm run dev
+
+# Rodar apenas o servidor
+npm run server
+
+# Rodar apenas o cliente
+cd client && npm run dev
+
+# Executar testes
+npm test
+
+# Build para produção
+npm run build
+npm start
+
+═══════════════════════════════════════════════════════════════
+
+🔧 FUNCIONALIDADES:
+
+✅ Gestão de Clientes
+✅ Catálogo de Serviços
+✅ Controle de Estoque de Peças (com alertas automáticos)
+✅ Inventário de Ferramentas
+✅ Gestão de Contatos (fornecedores/parceiros)
+✅ Ordens de Serviço Completas
+✅ Dashboard com Estatísticas
+✅ Busca e Filtros
+✅ Sistema de Notificações
+
+═══════════════════════════════════════════════════════════════
+
+❓ RESOLUÇÃO DE PROBLEMAS:
+
+🔴 ERRO: "npm não é reconhecido"
+   ➜ Instale o Node.js: https://nodejs.org/
+
+🔴 ERRO: "Porta 3000 já está em uso"
+   ➜ Feche outros programas usando a porta ou mude no .env
+
+🔴 ERRO: "Cannot find module"
+   ➜ Delete node_modules e reinstale:
+     rm -rf node_modules
+     npm install
+
+🔴 Banco de dados corrompido
+   ➜ Delete o arquivo database/oficina.db
+   ➜ Reinicie o servidor (será recriado automaticamente)
+
+═══════════════════════════════════════════════════════════════
+
+🔒 SEGURANÇA:
+
+✅ Senhas criptografadas
+✅ Autenticação JWT
+✅ Rate limiting (proteção contra ataques)
+✅ Validação de dados
+✅ CORS configurado
+
+⚠️ LEMBRE-SE:
+- Altere a senha padrão do admin
+- Configure o JWT_SECRET no arquivo .env
+- Use HTTPS em produção
+
+═══════════════════════════════════════════════════════════════
+
+📱 SUPORTE:
+
+1. Leia o README.md (documentação completa)
+2. Consulte o GUIA_RAPIDO.md (como usar)
+3. Execute ./check.sh (verificar instalação)
+4. Verifique os logs no console
+
+═══════════════════════════════════════════════════════════════
+
+🎉 PRONTO PARA USAR!
+
+Seu sistema de oficina está completo e funcional.
+
+Desenvolvido com:
+- Node.js + Express
+- React + Vite
+- SQLite
+- JWT + Bcrypt
+- E muito mais!
+
+Total de código: ~7.000+ linhas
+Arquivos: 50+
+
+Bom uso! 🚗✨
+
+═══════════════════════════════════════════════════════════════
+

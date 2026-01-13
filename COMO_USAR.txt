@@ -1,0 +1,191 @@
+╔═══════════════════════════════════════════════════════════╗
+║     🚗 SISTEMA DE GERENCIAMENTO DE OFICINA               ║
+║              GUIA DE USO RÁPIDO                          ║
+╚═══════════════════════════════════════════════════════════╝
+
+📌 COMO INICIAR O SISTEMA:
+
+1️⃣ FORMA MAIS FÁCIL (Modo Desenvolvimento):
+   
+   cd /home/jonhsady/projects/IDEIAS
+   ./start.sh
+   
+   Acesse: http://localhost:5173
+
+
+2️⃣ COM DOCKER (Produção):
+   
+   cd /home/jonhsady/projects/IDEIAS
+   ./start-docker.sh
+   
+   Acesse: http://localhost
+
+
+3️⃣ MANUAL:
+   
+   npm run dev
+   
+   Acesse: http://localhost:5173
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔑 CREDENCIAIS DE ACESSO:
+
+   Email: admin@oficina.com
+   Senha: admin123
+   
+   ⚠️ ALTERE DEPOIS DO PRIMEIRO LOGIN!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛑 COMO PARAR O SISTEMA:
+
+   Pressione Ctrl+C (se iniciou no terminal)
+   
+   Ou execute:
+   ./stop.sh
+   
+   Ou para Docker:
+   ./stop-docker.sh
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ FUNCIONALIDADES DISPONÍVEIS:
+
+   ✅ Cadastro de Clientes
+   ✅ Catálogo de Serviços
+   ✅ Estoque de Peças
+   ✅ Controle de Ferramentas
+   ✅ Ordens de Serviço
+   ✅ Agenda de Contatos
+   ✅ Gerenciamento de Usuários (Admin)
+   ✅ Dashboard com Estatísticas
+   ✅ Sistema de Permissões
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👥 CRIAR NOVOS USUÁRIOS:
+
+   1. Na tela de login, clique em "Criar conta"
+   2. Preencha os dados
+   3. Como Admin, vá em "Gerenciar Usuários"
+   4. Autorize o novo usuário
+
+   Obs: Usuários não autorizados têm limites de uso
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📂 ARQUIVOS IMPORTANTES:
+
+   • README.md           - Documentação completa
+   • DOCKER_SETUP.md     - Guia Docker detalhado
+   • start.sh            - Inicia o sistema
+   • stop.sh             - Para o sistema
+   • data/oficina.sqlite - Banco de dados (faça backup!)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 PROBLEMAS COMUNS:
+
+   ❌ "Porta já em uso":
+      ./stop.sh
+      ./start.sh
+
+   ❌ "Ícones não aparecem":
+      rm -rf client/.vite
+      ./start.sh
+
+   ❌ "Erro no banco de dados":
+      Faça backup primeiro:
+      cp data/oficina.sqlite data/backup.sqlite
+      
+      Depois delete e reinicie:
+      rm data/oficina.sqlite
+      ./start.sh
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💾 FAZER BACKUP:
+
+   # Banco de dados
+   cp data/oficina.sqlite backups/oficina_$(date +%Y%m%d).sqlite
+   
+   # Projeto completo
+   tar -czf oficina_backup.tar.gz \
+     --exclude=node_modules \
+     --exclude=client/node_modules \
+     .
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 VERIFICAR SE ESTÁ FUNCIONANDO:
+
+   # Backend
+   curl http://localhost:3000/api/health
+   
+   # Frontend  
+   curl http://localhost:5173
+   
+   # Ver processos
+   ps aux | grep -E "(vite|nodemon)"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🐳 COMANDOS DOCKER:
+
+   # Iniciar
+   docker-compose up -d
+   
+   # Parar
+   docker-compose down
+   
+   # Ver logs
+   docker-compose logs -f
+   
+   # Ver status
+   docker-compose ps
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌐 ACESSAR DE OUTROS DISPOSITIVOS:
+
+   1. Descubra seu IP local:
+      ip addr show | grep inet
+   
+   2. Acesse de outro dispositivo:
+      http://SEU_IP:5173
+      
+      Exemplo: http://192.168.1.100:5173
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📖 DOCUMENTAÇÃO COMPLETA:
+
+   Leia o README.md para informações detalhadas:
+   
+   cat README.md
+   
+   Ou abra no navegador de arquivos
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ SISTEMA PRONTO PARA USO!
+
+   Basta executar: ./start.sh
+   
+   E acessar: http://localhost:5173
+   
+   Login: admin@oficina.com
+   Senha: admin123
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📞 Em caso de dúvidas, consulte:
+   • README.md
+   • DOCKER_SETUP.md
+   • README_DOCKER.md
+
+🚗 Bom uso e bons negócios!
+
+═══════════════════════════════════════════════════════════
+
