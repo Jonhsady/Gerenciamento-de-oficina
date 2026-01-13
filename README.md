@@ -31,39 +31,62 @@
 
 ## 📸 Screenshots
 
-> 💡 **Nota**: Adicione suas screenshots na pasta `docs/screenshots/` e atualize os links abaixo
+> 💡 **Como adicionar screenshots**: Execute `./capture-screenshots.sh` para um guia interativo, ou adicione manualmente as imagens na pasta `docs/screenshots/`
 
-### 🏠 Dashboard
+<div align="center">
+
+### 🏠 Dashboard Principal
 ![Dashboard](./docs/screenshots/dashboard.png)
-*Visão geral com estatísticas e informações importantes do negócio*
+*Visão geral com estatísticas em tempo real, alertas de estoque baixo e ações rápidas*
+
+---
 
 ### 👥 Gestão de Clientes
 ![Clientes](./docs/screenshots/clientes.png)
-*Interface completa para cadastro e gerenciamento de clientes*
+*Interface completa para cadastro, edição e gerenciamento de clientes com busca avançada e exportação CSV*
+
+---
 
 ### 🔧 Catálogo de Serviços
 ![Serviços](./docs/screenshots/servicos.png)
-*Controle de serviços oferecidos pela oficina*
+*Controle completo de serviços oferecidos pela oficina com preços, categorias e exportação CSV*
+
+---
 
 ### 📦 Controle de Estoque
 ![Peças](./docs/screenshots/pecas.png)
-*Gerenciamento de peças com alertas de estoque baixo*
+*Gerenciamento inteligente de peças com alertas de estoque baixo, controle de quantidade e exportação CSV*
 
-### 🛠️ Ferramentas
+---
+
+### 🛠️ Inventário de Ferramentas
 ![Ferramentas](./docs/screenshots/ferramentas.png)
-*Controle de ferramentas e status de uso*
+*Controle de ferramentas com status de uso (em uso/disponível) e estado de conservação*
+
+---
 
 ### 📋 Ordens de Serviço
 ![Ordens de Serviço](./docs/screenshots/ordens-servico.png)
-*Criação e acompanhamento de ordens de serviço*
+*Criação e acompanhamento completo de ordens de serviço com cálculo automático de valores*
+
+---
 
 ### 👤 Gerenciamento de Usuários (Admin)
 ![Usuários](./docs/screenshots/usuarios.png)
-*Painel administrativo para gerenciar usuários e permissões*
+*Painel administrativo para gerenciar usuários, autorizar acesso e controlar limites de uso*
+
+---
 
 ### 🔐 Tela de Login
 ![Login](./docs/screenshots/login.png)
-*Interface de autenticação segura*
+*Interface de autenticação segura com opção de registro para novos usuários*
+
+</div>
+
+> 📝 **Nota**: As screenshots acima são placeholders. Para adicionar as imagens reais:
+> 1. Execute `./capture-screenshots.sh` para um guia interativo
+> 2. Ou capture manualmente e salve em `docs/screenshots/` com os nomes indicados
+> 3. As imagens aparecerão automaticamente no README
 
 ---
 
@@ -71,10 +94,20 @@
 
 ### Funcionalidades em Ação
 
-- ✅ **Exportação CSV**: Exporte dados de clientes, serviços e peças com um clique
-- ✅ **Busca Avançada**: Encontre rapidamente qualquer informação
-- ✅ **Interface Responsiva**: Funciona perfeitamente em desktop, tablet e mobile
-- ✅ **Notificações em Tempo Real**: Feedback visual para todas as ações
+| Funcionalidade | Descrição |
+|---------------|-----------|
+| 📥 **Exportação CSV** | Exporte dados de clientes, serviços e peças com um clique para análise externa |
+| 🔍 **Busca Avançada** | Encontre rapidamente qualquer informação com filtros inteligentes |
+| 📱 **Interface Responsiva** | Funciona perfeitamente em desktop, tablet e mobile |
+| 🔔 **Notificações em Tempo Real** | Feedback visual para todas as ações do usuário |
+| 🎯 **Sistema de Limites** | Controle de uso para usuários não autorizados |
+| 🔒 **Segurança Avançada** | Autenticação JWT, senhas criptografadas e proteção contra ataques |
+| 📊 **Dashboard Inteligente** | Estatísticas e alertas em tempo real |
+| 🛠️ **Controle de Estoque** | Alertas automáticos de estoque baixo |
+
+### 🎥 Vídeo Demonstrativo
+
+> 💡 **Em breve**: Vídeo demonstrativo das funcionalidades principais do sistema
 
 ## 🚀 Início Rápido
 
@@ -156,6 +189,9 @@ IDEIAS/
 
 # Parar sistema
 ./stop.sh
+
+# Capturar screenshots (guia interativo)
+./capture-screenshots.sh
 
 # Apenas backend
 npm run server:dev
@@ -454,9 +490,11 @@ pm2 restart oficina
 
 ## 📚 Documentação Adicional
 
-- [Guia Docker](./DOCKER_SETUP.md) - Setup completo com Docker
-- [Sistema de Limites](./SISTEMA_DE_LIMITES.md) - Como funciona o sistema de autorização
-- [README Docker](./README_DOCKER.md) - Comandos Docker específicos
+- [📸 Guia de Screenshots](./docs/screenshots/README.md) - Como capturar e adicionar screenshots
+- [🐳 Guia Docker](./DOCKER_SETUP.md) - Setup completo com Docker
+- [🎯 Sistema de Limites](./SISTEMA_DE_LIMITES.md) - Como funciona o sistema de autorização
+- [📖 README Docker](./README_DOCKER.md) - Comandos Docker específicos
+- [⚡ Guia Rápido](./GUIA_RAPIDO.md) - Início rápido e comandos essenciais
 
 ## 🤝 Contribuindo
 
