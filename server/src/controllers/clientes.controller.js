@@ -114,3 +114,38 @@ export const remove = (req, res, next) => {
   }
 };
 
+// Exportar clientes em CSV
+export const exportCSV = (req, res, next) => {
+  try {
+    const clientes = db.prepare('SELECT * FROM clientes ORDER BY nome ASC').all();
+    
+    // Cabeçalho CSV
+    const headers = ['ID', 'Nome', 'CPF/CNPJ', 'Telefone', 'E-mail', 'Endereço', 'Observações', 'Criado em'];
+    const csvRows = [headers.join(',')];
+    
+    // Dados
+    clientes.forEach(cliente => {
+      const row = [
+        cliente.id,
+        `"${(cliente.nome || '').replace(/"/g, '""')}"`,
+        `"${(cliente.cpf_cnpj || '').replace(/"/g, '""')}"`,
+        `"${(cliente.telefone || '').replace(/"/g, '""')}"`,
+        `"${(cliente.email || '').replace(/"/g, '""')}"`,
+        `"${(cliente.endereco || '').replace(/"/g, '""')}"`,
+        `"${(cliente.observacoes || '').replace(/"/g, '""')}"`,
+        cliente.created_at || ''
+      ];
+      csvRows.push(row.join(','));
+    });
+    
+    const csv = csvRows.join('\n');
+    const filename = `clientes_${new Date().toISOString().split('T')[0]}.csv`;
+    
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+    res.send('\ufeff' + csv); // BOM para Excel reconhecer UTF-8
+  } catch (error) {
+    next(error);
+  }
+};
+

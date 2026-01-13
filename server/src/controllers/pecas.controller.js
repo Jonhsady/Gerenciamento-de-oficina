@@ -166,3 +166,40 @@ export const getEstoqueBaixo = (req, res, next) => {
   }
 };
 
+// Exportar peças em CSV
+export const exportCSV = (req, res, next) => {
+  try {
+    const pecas = db.prepare('SELECT * FROM pecas ORDER BY nome ASC').all();
+    
+    const headers = ['ID', 'Nome', 'Código', 'Descrição', 'Quantidade', 'Quantidade Mínima', 'Valor Unitário', 'Localização', 'Fornecedor', 'Categoria', 'Ativo', 'Criado em'];
+    const csvRows = [headers.join(',')];
+    
+    pecas.forEach(peca => {
+      const row = [
+        peca.id,
+        `"${(peca.nome || '').replace(/"/g, '""')}"`,
+        `"${(peca.codigo || '').replace(/"/g, '""')}"`,
+        `"${(peca.descricao || '').replace(/"/g, '""')}"`,
+        peca.quantidade || 0,
+        peca.quantidade_minima || 0,
+        peca.valor_unitario || 0,
+        `"${(peca.localizacao || '').replace(/"/g, '""')}"`,
+        `"${(peca.fornecedor || '').replace(/"/g, '""')}"`,
+        `"${(peca.categoria || '').replace(/"/g, '""')}"`,
+        peca.ativo ? 'Sim' : 'Não',
+        peca.created_at || ''
+      ];
+      csvRows.push(row.join(','));
+    });
+    
+    const csv = csvRows.join('\n');
+    const filename = `pecas_${new Date().toISOString().split('T')[0]}.csv`;
+    
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+    res.send('\ufeff' + csv);
+  } catch (error) {
+    next(error);
+  }
+};
+

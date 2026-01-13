@@ -9,6 +9,7 @@ const router = express.Router();
 router.use(authenticate);
 
 router.get('/', clientesController.getAll);
+router.get('/export/csv', clientesController.exportCSV);
 router.get('/:id', validateId, clientesController.getById);
 router.post('/', checkLimit('clientes'), validateCliente, clientesController.create);
 router.put('/:id', validateId, validateCliente, clientesController.update);

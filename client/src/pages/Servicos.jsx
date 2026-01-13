@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
-import { FaPlus, FaEdit } from 'react-icons/fa'
+import { FaPlus, FaEdit, FaFileExport } from 'react-icons/fa'
 import TrashIcon from '../components/TrashIcon'
 import api from '../services/api'
 
@@ -84,6 +84,24 @@ function Servicos() {
     setShowModal(false)
   }
 
+  const handleExportCSV = async () => {
+    try {
+      const response = await api.get('/servicos/export/csv', {
+        responseType: 'blob'
+      })
+      const url = window.URL.createObjectURL(new Blob([response.data]))
+      const link = document.createElement('a')
+      link.href = url
+      link.setAttribute('download', `servicos_${new Date().toISOString().split('T')[0]}.csv`)
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+      toast.success('Exportação realizada com sucesso!')
+    } catch (error) {
+      toast.error('Erro ao exportar serviços')
+    }
+  }
+
   if (loading) {
     return <div className="loading"><div className="spinner"></div></div>
   }
@@ -92,9 +110,14 @@ function Servicos() {
     <div>
       <div className="page-header">
         <h2>Serviços</h2>
-        <button onClick={() => setShowModal(true)} className="btn btn-primary">
-          <FaPlus /> Novo Serviço
-        </button>
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <button onClick={handleExportCSV} className="btn btn-secondary">
+            <FaFileExport /> Exportar CSV
+          </button>
+          <button onClick={() => setShowModal(true)} className="btn btn-primary">
+            <FaPlus /> Novo Serviço
+          </button>
+        </div>
       </div>
 
       <div className="card">

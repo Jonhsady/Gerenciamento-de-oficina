@@ -9,6 +9,7 @@ router.use(authenticate);
 
 router.get('/', pecasController.getAll);
 router.get('/estoque/baixo', pecasController.getEstoqueBaixo);
+router.get('/export/csv', pecasController.exportCSV);
 router.get('/:id', validateId, pecasController.getById);
 router.post('/', validatePeca, pecasController.create);
 router.put('/:id', validateId, validatePeca, pecasController.update);

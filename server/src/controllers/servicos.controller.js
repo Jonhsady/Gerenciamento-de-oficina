@@ -103,3 +103,36 @@ export const remove = (req, res, next) => {
   }
 };
 
+// Exportar serviços em CSV
+export const exportCSV = (req, res, next) => {
+  try {
+    const servicos = db.prepare('SELECT * FROM servicos ORDER BY nome ASC').all();
+    
+    const headers = ['ID', 'Nome', 'Descrição', 'Valor', 'Tempo Estimado', 'Categoria', 'Ativo', 'Criado em'];
+    const csvRows = [headers.join(',')];
+    
+    servicos.forEach(servico => {
+      const row = [
+        servico.id,
+        `"${(servico.nome || '').replace(/"/g, '""')}"`,
+        `"${(servico.descricao || '').replace(/"/g, '""')}"`,
+        servico.valor || 0,
+        servico.tempo_estimado || '',
+        `"${(servico.categoria || '').replace(/"/g, '""')}"`,
+        servico.ativo ? 'Sim' : 'Não',
+        servico.created_at || ''
+      ];
+      csvRows.push(row.join(','));
+    });
+    
+    const csv = csvRows.join('\n');
+    const filename = `servicos_${new Date().toISOString().split('T')[0]}.csv`;
+    
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+    res.send('\ufeff' + csv);
+  } catch (error) {
+    next(error);
+  }
+};
+

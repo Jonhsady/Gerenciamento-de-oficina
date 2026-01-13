@@ -1,19 +1,80 @@
 # 🚗 Sistema de Gerenciamento de Oficina
 
-Sistema completo para gerenciamento de oficinas mecânicas com autenticação, controle de estoque, ordens de serviço e muito mais!
+<div align="center">
+
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Node](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen.svg)
+![React](https://img.shields.io/badge/react-18.0.0-blue.svg)
+
+**Sistema completo para gerenciamento de oficinas mecânicas com autenticação, controle de estoque, ordens de serviço e muito mais!**
+
+[🚀 Início Rápido](#-início-rápido) • [✨ Funcionalidades](#-funcionalidades) • [📸 Screenshots](#-screenshots) • [📚 Documentação](#-documentação-adicional)
+
+</div>
+
+---
 
 ## ✨ Funcionalidades
 
-- 👥 **Gestão de Clientes** - Cadastro completo com CPF/CNPJ, telefone, e-mail
-- 🔧 **Catálogo de Serviços** - Controle de serviços oferecidos com preços
-- 📦 **Estoque de Peças** - Gerenciamento de peças com quantidade e preço
-- 🛠️ **Gerenciamento de Ferramentas** - Controle de ferramentas e seu status
-- 📋 **Ordens de Serviço** - Criação e acompanhamento de OS
-- 📞 **Agenda de Contatos** - Cadastro de fornecedores e contatos
-- 👤 **Sistema de Usuários** - Múltiplos usuários com permissões
-- 🔒 **Autenticação Segura** - JWT + Bcrypt
-- 📊 **Dashboard** - Estatísticas e visão geral do negócio
+- 👥 **Gestão de Clientes** - Cadastro completo com CPF/CNPJ, telefone, e-mail e exportação CSV
+- 🔧 **Catálogo de Serviços** - Controle de serviços oferecidos com preços e exportação CSV
+- 📦 **Estoque de Peças** - Gerenciamento de peças com quantidade, alertas de estoque baixo e exportação CSV
+- 🛠️ **Gerenciamento de Ferramentas** - Controle de ferramentas e seu status (em uso/disponível)
+- 📋 **Ordens de Serviço** - Criação e acompanhamento completo de OS com cálculo automático
+- 📞 **Agenda de Contatos** - Cadastro de fornecedores e contatos importantes
+- 👤 **Sistema de Usuários** - Múltiplos usuários com permissões e controle de acesso
+- 🔒 **Autenticação Segura** - JWT + Bcrypt com proteção contra ataques
+- 📊 **Dashboard** - Estatísticas e visão geral do negócio em tempo real
 - 🎯 **Sistema de Limites** - Controle de uso para usuários não autorizados
+- 📥 **Exportação CSV** - Exporte dados de clientes, serviços e peças para análise externa
+
+## 📸 Screenshots
+
+> 💡 **Nota**: Adicione suas screenshots na pasta `docs/screenshots/` e atualize os links abaixo
+
+### 🏠 Dashboard
+![Dashboard](./docs/screenshots/dashboard.png)
+*Visão geral com estatísticas e informações importantes do negócio*
+
+### 👥 Gestão de Clientes
+![Clientes](./docs/screenshots/clientes.png)
+*Interface completa para cadastro e gerenciamento de clientes*
+
+### 🔧 Catálogo de Serviços
+![Serviços](./docs/screenshots/servicos.png)
+*Controle de serviços oferecidos pela oficina*
+
+### 📦 Controle de Estoque
+![Peças](./docs/screenshots/pecas.png)
+*Gerenciamento de peças com alertas de estoque baixo*
+
+### 🛠️ Ferramentas
+![Ferramentas](./docs/screenshots/ferramentas.png)
+*Controle de ferramentas e status de uso*
+
+### 📋 Ordens de Serviço
+![Ordens de Serviço](./docs/screenshots/ordens-servico.png)
+*Criação e acompanhamento de ordens de serviço*
+
+### 👤 Gerenciamento de Usuários (Admin)
+![Usuários](./docs/screenshots/usuarios.png)
+*Painel administrativo para gerenciar usuários e permissões*
+
+### 🔐 Tela de Login
+![Login](./docs/screenshots/login.png)
+*Interface de autenticação segura*
+
+---
+
+## 🎬 Demonstração
+
+### Funcionalidades em Ação
+
+- ✅ **Exportação CSV**: Exporte dados de clientes, serviços e peças com um clique
+- ✅ **Busca Avançada**: Encontre rapidamente qualquer informação
+- ✅ **Interface Responsiva**: Funciona perfeitamente em desktop, tablet e mobile
+- ✅ **Notificações em Tempo Real**: Feedback visual para todas as ações
 
 ## 🚀 Início Rápido
 
@@ -247,10 +308,13 @@ Novos usuários podem se cadastrar mas terão acesso limitado até que um admini
 
 ### Recursos (requer autenticação)
 - `GET /api/clientes` - Listar clientes
+- `GET /api/clientes/export/csv` - Exportar clientes em CSV
 - `POST /api/clientes` - Criar cliente
 - `GET /api/servicos` - Listar serviços
+- `GET /api/servicos/export/csv` - Exportar serviços em CSV
 - `POST /api/servicos` - Criar serviço
 - `GET /api/pecas` - Listar peças
+- `GET /api/pecas/export/csv` - Exportar peças em CSV
 - `POST /api/pecas` - Criar peça
 - `GET /api/ferramentas` - Listar ferramentas
 - `POST /api/ferramentas` - Criar ferramenta
@@ -413,6 +477,11 @@ Para problemas ou dúvidas:
 
 ## 📝 Changelog
 
+### v1.1.0 (2024-10-21)
+- ✨ **NOVO**: Exportação CSV para clientes, serviços e peças
+- 🎨 **MELHORIA**: README atualizado com seções de screenshots
+- 🎨 **MELHORIA**: Interface mais profissional e organizada
+
 ### v1.0.0 (2024-10-21)
 - ✅ Sistema completo funcional
 - ✅ Autenticação e autorização
@@ -422,6 +491,29 @@ Para problemas ou dúvidas:
 - ✅ Docker configurado
 - ✅ Testes implementados
 - ✅ Documentação completa
+
+## 🛠️ Tecnologias Utilizadas
+
+### Backend
+- **Node.js** - Runtime JavaScript
+- **Express** - Framework web
+- **SQLite** - Banco de dados
+- **JWT** - Autenticação
+- **Bcrypt** - Criptografia de senhas
+- **Jest** - Testes
+
+### Frontend
+- **React** - Biblioteca UI
+- **Vite** - Build tool
+- **Zustand** - Gerenciamento de estado
+- **Axios** - Cliente HTTP
+- **React Router** - Roteamento
+- **React Icons** - Ícones
+
+### DevOps
+- **Docker** - Containerização
+- **Docker Compose** - Orquestração
+- **Nginx** - Servidor web (produção)
 
 ---
 
